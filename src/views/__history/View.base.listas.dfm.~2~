@@ -1,0 +1,42 @@
+inherited ViewBaseListas: TViewBaseListas
+  BorderStyle = bsNone
+  Caption = 'ViewBaseListas'
+  ClientHeight = 538
+  ClientWidth = 774
+  Position = poMainFormCenter
+  ExplicitWidth = 774
+  PixelsPerInch = 96
+  TextHeight = 13
+  object pnlTopo: TPanel
+    Left = 0
+    Top = 0
+    Width = 774
+    Height = 35
+    Align = alTop
+    BevelOuter = bvNone
+    Color = 12072763
+    ParentBackground = False
+    TabOrder = 0
+    object pnlIcone: TPanel
+      Left = 0
+      Top = 0
+      Width = 35
+      Height = 35
+      Align = alLeft
+      BevelOuter = bvNone
+      TabOrder = 0
+    end
+  end
+  object pnlRodape: TPanel
+    Left = 0
+    Top = 503
+    Width = 774
+    Height = 35
+    Align = alBottom
+    BevelOuter = bvNone
+    Color = 13058372
+    ParentBackground = False
+    TabOrder = 1
+    ExplicitTop = 8
+  end
+end

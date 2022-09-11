@@ -1,0 +1,5 @@
+inherited ViewBaseListas: TViewBaseListas
+  Caption = 'ViewBaseListas'
+  PixelsPerInch = 96
+  TextHeight = 13
+end

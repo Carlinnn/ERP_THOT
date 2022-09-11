@@ -1,0 +1,5 @@
+object ServiceCadastro: TServiceCadastro
+  OldCreateOrder = False
+  Height = 423
+  Width = 856
+end

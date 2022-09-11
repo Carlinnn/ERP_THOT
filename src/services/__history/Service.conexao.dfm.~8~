@@ -1,0 +1,41 @@
+object ServiceConexao: TServiceConexao
+  OldCreateOrder = False
+  OnCreate = DataModuleCreate
+  Height = 372
+  Width = 582
+  object FDConn: TFDConnection
+    Params.Strings = (
+      'Database=D:\dev\ERPDelphi\BancoDeDados\DADOS.FDB'
+      'User_Name=SYSDBA'
+      'Password=masterkey'
+      'Server=localhost'
+      'Port=3050'
+      'CharacterSet=ISO8859_1'
+      'DriverID=FB')
+    Connected = True
+    LoginPrompt = False
+    Left = 128
+    Top = 56
+  end
+  object FDCursor: TFDGUIxWaitCursor
+    Provider = 'Forms'
+    Left = 192
+    Top = 56
+  end
+  object FDDriverLink: TFDPhysFBDriverLink
+    Left = 248
+    Top = 56
+  end
+  object QRY_Filial: TFDQuery
+    Connection = FDConn
+    SQL.Strings = (
+      'select * from filial where fil_codigo = :codigo')
+    Left = 312
+    Top = 56
+    ParamData = <
+      item
+        Name = 'CODIGO'
+        ParamType = ptInput
+      end>
+  end
+end

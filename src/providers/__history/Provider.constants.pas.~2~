@@ -1,0 +1,10 @@
+unit Provider.constants;
+
+interface
+
+var
+  iCOD_FILIAL: integer;
+
+implementation
+
+end.
