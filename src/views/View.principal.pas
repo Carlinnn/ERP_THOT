@@ -82,6 +82,9 @@ var
 
 implementation
 
+uses
+  View.Cliente.Galleti;
+
 {$R *.dfm}
 
 
@@ -94,6 +97,11 @@ end;
 procedure TViewPrincipal.btnClientesClick(Sender: TObject);
 begin
   GET_LineMenu(Sender);
+  if not Assigned(ViewClienteGalleti) then
+    Application.CreateForm(TViewClienteGalleti, ViewClienteGalleti);
+
+  ViewClienteGalleti.Parent := pnlConteudo;
+  ViewClienteGalleti.Show;
 end;
 
 procedure TViewPrincipal.btnConfiguracoesClick(Sender: TObject);

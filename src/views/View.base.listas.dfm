@@ -449,7 +449,6 @@ inherited ViewBaseListas: TViewBaseListas
         Caption = 'card_pesquisa'
         CardIndex = 0
         TabOrder = 0
-        ExplicitTop = 3
         object pnlTituloPesquisa: TPanel
           Left = 0
           Top = 0
@@ -460,11 +459,10 @@ inherited ViewBaseListas: TViewBaseListas
           Color = 13124679
           ParentBackground = False
           TabOrder = 0
-          ExplicitTop = 3
           object lblTituloPesquisa: TLabel
             Left = 21
             Top = 13
-            Width = 87
+            Width = 76
             Height = 25
             Caption = 'Pesquisa'
             Color = clWhite

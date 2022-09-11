@@ -1,5 +1,0 @@
-object ServiceConexao: TServiceConexao
-  OldCreateOrder = False
-  Height = 372
-  Width = 582
-end

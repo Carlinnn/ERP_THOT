@@ -103,6 +103,7 @@
         <DelphiCompile Include="$(MainSource)">
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
+        <DCCReference Include="src\providers\Provider.constants.pas"/>
         <DCCReference Include="src\views\View.principal.pas">
             <Form>ViewPrincipal</Form>
             <FormType>dfm</FormType>
@@ -116,7 +117,6 @@
             <Form>ServiceCadastro</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="src\providers\Provider.constants.pas"/>
         <DCCReference Include="src\views\View.base.pas">
             <Form>ViewBase</Form>
             <FormType>dfm</FormType>
@@ -127,6 +127,10 @@
         </DCCReference>
         <DCCReference Include="src\views\View.clientes.pas">
             <Form>ViewBaseListas1</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="src\views\View.Cliente.Galleti.pas">
+            <Form>ViewClienteGalleti</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">

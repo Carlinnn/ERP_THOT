@@ -2,12 +2,12 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2022/08/25 17:21:17.000.597,=C:\Users\kakam\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2022/08/25 17:24:15.000.281,C:\Users\kakam\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas=D:\dev\ERPDelphi\src\views\View.principal.pas</Transaction>
     <Transaction>2022/08/25 17:24:15.000.281,C:\Users\kakam\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.dfm=D:\dev\ERPDelphi\src\views\View.principal.dfm</Transaction>
+    <Transaction>2022/08/25 17:24:15.000.281,C:\Users\kakam\OneDrive\Documentos\Embarcadero\Studio\Projects\Unit1.pas=D:\dev\ERPDelphi\src\views\View.principal.pas</Transaction>
     <Transaction>2022/08/25 17:25:37.000.532,C:\Users\kakam\OneDrive\Documentos\Embarcadero\Studio\Projects\Project1.dproj=D:\dev\ERPDelphi\ERPThot.dproj</Transaction>
     <Transaction>2022/08/29 18:20:07.000.938,=D:\dev\ERPDelphi\Unit1.pas</Transaction>
-    <Transaction>2022/08/29 18:22:49.000.135,D:\dev\ERPDelphi\src\services\Service.conexao.dfm=D:\dev\ERPDelphi\Unit1.dfm</Transaction>
     <Transaction>2022/08/29 18:22:49.000.135,D:\dev\ERPDelphi\src\services\Service.conexao.pas=D:\dev\ERPDelphi\Unit1.pas</Transaction>
+    <Transaction>2022/08/29 18:22:49.000.135,D:\dev\ERPDelphi\src\services\Service.conexao.dfm=D:\dev\ERPDelphi\Unit1.dfm</Transaction>
     <Transaction>2022/08/30 15:20:51.000.727,=D:\dev\ERPDelphi\Unit1.pas</Transaction>
     <Transaction>2022/08/30 15:21:21.000.245,D:\dev\ERPDelphi\Unit1.pas=D:\dev\ERPDelphi\src\services\Service.ccadastro.pas</Transaction>
     <Transaction>2022/08/30 15:21:21.000.245,D:\dev\ERPDelphi\Unit1.dfm=D:\dev\ERPDelphi\src\services\Service.ccadastro.dfm</Transaction>
@@ -19,11 +19,14 @@
     <Transaction>2022/09/01 14:25:31.000.372,=D:\dev\ERPDelphi\Unit1.pas</Transaction>
     <Transaction>2022/09/01 14:26:47.000.286,D:\dev\ERPDelphi\src\views\Vie.base.listas.pas=D:\dev\ERPDelphi\Unit1.pas</Transaction>
     <Transaction>2022/09/01 14:26:47.000.286,D:\dev\ERPDelphi\src\views\Vie.base.listas.dfm=D:\dev\ERPDelphi\Unit1.dfm</Transaction>
-    <Transaction>2022/09/01 14:26:57.000.765,D:\dev\ERPDelphi\src\views\View.base.listas.dfm=D:\dev\ERPDelphi\src\views\Vie.base.listas.dfm</Transaction>
     <Transaction>2022/09/01 14:26:57.000.765,D:\dev\ERPDelphi\src\views\View.base.listas.pas=D:\dev\ERPDelphi\src\views\Vie.base.listas.pas</Transaction>
+    <Transaction>2022/09/01 14:26:57.000.765,D:\dev\ERPDelphi\src\views\View.base.listas.dfm=D:\dev\ERPDelphi\src\views\Vie.base.listas.dfm</Transaction>
     <Transaction>2022/09/05 13:33:33.000.050,=D:\dev\ERPDelphi\Unit1.pas</Transaction>
     <Transaction>2022/09/05 13:33:50.000.841,D:\dev\ERPDelphi\Unit1.pas=D:\dev\ERPDelphi\src\views\View.clientes.pas</Transaction>
     <Transaction>2022/09/05 13:33:50.000.841,D:\dev\ERPDelphi\Unit1.dfm=D:\dev\ERPDelphi\src\views\View.clientes.dfm</Transaction>
+    <Transaction>2022/09/11 10:58:27.861,=D:\projetos\ERP_THOT\Unit1.pas</Transaction>
+    <Transaction>2022/09/11 10:58:43.658,D:\projetos\ERP_THOT\src\views\View.Cliente.Galleti.dfm=D:\projetos\ERP_THOT\Unit1.dfm</Transaction>
+    <Transaction>2022/09/11 10:58:43.658,D:\projetos\ERP_THOT\src\views\View.Cliente.Galleti.pas=D:\projetos\ERP_THOT\Unit1.pas</Transaction>
   </Transactions>
 	<ProjectSortOrder AutoSort="0" SortType="0">
     <File Path="src"/>
@@ -43,5 +46,7 @@
     <File Path="src\views\View.clientes.dfm"/>
     <File Path="src\views\View.principal.pas"/>
     <File Path="src\views\View.principal.dfm"/>
+    <File Path="src\views\View.Cliente.Galleti.pas"/>
+    <File Path="src\views\View.Cliente.Galleti.dfm"/>
   </ProjectSortOrder>
 </BorlandProject>

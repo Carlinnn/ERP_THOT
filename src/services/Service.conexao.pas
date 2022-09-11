@@ -30,6 +30,17 @@ uses
   Provider.constants;
 
 type
+  TErroConexaoConfig = Exception;
+  TErroConexaoAcesso = Exception;
+
+  TConexaoParametro = record
+    Database: string;
+    Server: string;
+    Port: Integer;
+    User: string;
+    Password: string;
+  end;
+
   TServiceConexao = class(TDataModule)
     FDConn: TFDConnection;
     FDCursor: TFDGUIxWaitCursor;
@@ -40,11 +51,33 @@ type
     QRY_FilialFIL_FANTASIA: TStringField;
     QRY_FilialFIL_CNPJ: TStringField;
     QRY_FilialFIL_TELEFONE: TStringField;
-    procedure DataModuleCreate(Sender: TObject);
+    qrPessoas: TFDQuery;
+    qrPessoasPES_CODIGO: TIntegerField;
+    qrPessoasPES_RAZAO: TStringField;
+    qrPessoasPES_FANTASIA: TStringField;
+    qrPessoasPES_TELEFONE: TStringField;
+    qrPessoasPES_CNPJCPF: TStringField;
+    qrPessoasPES_IERG: TStringField;
+    qrPessoasPES_OBSERVACAO: TStringField;
+    qrPessoasPES_TIPOPESSOA: TIntegerField;
+    qrPessoasPesquisa: TFDQuery;
+    qrPessoaTipo: TFDQuery;
+    qrPessoasPesquisaPES_CODIGO: TIntegerField;
+    qrPessoasPesquisaPES_RAZAO: TStringField;
+    qrPessoasPesquisaPES_FANTASIA: TStringField;
+    qrPessoasPesquisaPES_TELEFONE: TStringField;
+    qrPessoasPesquisaPES_CNPJCPF: TStringField;
+    qrPessoasPesquisaPES_IERG: TStringField;
+    qrPessoasPesquisaPES_OBSERVACAO: TStringField;
+    qrPessoasPesquisaPES_TIPOPESSOA: TIntegerField;
+    qrPessoasPesquisaTIPO: TStringField;
+    qrPessoaTipoID: TIntegerField;
+    qrPessoaTipoNOME: TStringField;
   private
-    { Private declarations }
+    function CarregarConfig: TConexaoParametro;
   public
-    { Public declarations }
+    procedure Conectar;
+    procedure AbrirConsultas;
   end;
 
 var
@@ -56,54 +89,68 @@ implementation
 
 {$R *.dfm}
 
-procedure TServiceConexao.DataModuleCreate(Sender: TObject);
-var
-  LIniFile      : TMemIniFile;
-  LDatabase     : string;
-  LUser_Name    : string;
-  LPassword     : string;
-  LServidor     : string;
-  LPorta        : integer;
-  LCaminho      : string;
-
+procedure TServiceConexao.AbrirConsultas;
 begin
-
-  try
-
-    FDConn.Connected  := False;
-
-    LCaminho := ExtractFileDir(ParamStr(0)) + '\thot.ini';
-    //    FDPhysFDBriverlink.VendorHome := ExtractFileDir(ParamStr(0)) + '\dlls';
-
-    LIniFile := TMemIniFile.Create(LCaminho);
-
-    LDatabase   := LIniFile.ReadString('Conexao', 'Database', LDatabase);
-    LServidor   := LIniFile.ReadString('Conexao', 'Servidor', LServidor);
-    LPorta      := LIniFile.ReadInteger('Conexao', 'Porta', LPorta);
-
-    LUser_Name  := 'SYSDBA';
-    LPassword   := 'masterkey';
-
-    FDConn.Params.Values['Database']   := LDatabase;
-    FDConn.Params.Values['User_Name']  := LUser_Name;
-    FDConn.Params.Values['Password']   := LPassword;
-    FDConn.Params.Values['Server']     := LServidor;
-    FDConn.Params.Values['Porta']      := Lporta.ToString;
-
-//    FDConn.Connected := True;
-
-  finally
-    FreeAndNil(LIniFile);
-  end;
-
-  //  CARREGO MINHA FILIAL
   QRY_Filial.Close;
-  QRY_Filial.Params[0].AsInteger := 1;
+  QRY_Filial.Params[0].AsInteger := FILIAL_PADAO_SISTEMA;
   QRY_Filial.Open();
 
   iCOD_FILIAL := QRY_FilialFIL_CODIGO.AsInteger;
   sRAZAO_FILIAL := QRY_FilialFIL_RAZAO.AsString;
+end;
 
+procedure TServiceConexao.Conectar;
+var
+  LConfig: TConexaoParametro;
+begin
+  LConfig := CarregarConfig;
+
+  try
+    with FDConn do
+    begin
+      Connected  := False;
+
+      Params.Values['Database'] := LConfig.Database;
+      Params.Values['User_Name'] := LConfig.User;
+      Params.Values['Password'] := LConfig.Password;
+      Params.Values['Server'] := LConfig.Server;
+      Params.Values['Porta'] := LConfig.Port.ToString;
+
+      Connected := True;
+    end;
+  except
+    on e: Exception do
+      raise TErroConexaoAcesso.Create('Falha ao conectar no banco de dados.' + #13 + e.Message);
+  end;
+end;
+
+function TServiceConexao.CarregarConfig: TConexaoParametro;
+var
+  LIniFile: TMemIniFile;
+  LCaminho: string;
+  LParametros: TConexaoParametro;
+begin
+  LCaminho := ExtractFileDir(ParamStr(0)) + '\thot.ini';
+
+  if not FileExists(LCaminho) then
+    raise TErroConexaoConfig.Create('Arquivo de configuração não localizado. (thot.ini)');
+
+  LIniFile := TMemIniFile.Create(LCaminho);
+
+  try
+    with LParametros do
+    begin
+      Database := LIniFile.ReadString('Conexao', 'Database', 'DADOS.FDB');
+      Server := LIniFile.ReadString('Conexao', 'Servidor', '127.0.0.1');
+      Port := LIniFile.ReadInteger('Conexao', 'Porta', 3050);
+      User := LIniFile.ReadString('Conexao', 'Usuario', 'SYSDBA');
+      Password := LIniFile.ReadString('Conexao', 'Senha', 'masterkey');
+    end;
+
+    Result := LParametros;
+  finally
+    FreeAndNil(LIniFile);
+  end;
 end;
 
 end.
